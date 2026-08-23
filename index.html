@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Discover meals and cooking inspiration with Plate Finder.">
+	<title>Plate Finder | Meal Discovery</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<nav class="nav" aria-label="Main navigation">
+			<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span> Plate Finder</a>
+			<span class="nav-note">A better answer to “what should I cook?”</span>
+		</nav>
+		<div class="hero">
+			<p class="eyebrow">Your next good meal</p>
+			<h1>Find a plate worth making.</h1>
+			<p class="hero-copy">Search a world of recipes by ingredient, dish, or cuisine. Your kitchen inspiration starts here.</p>
+			<form class="search-form" id="search-form">
+				<label class="hidden" for="meal-search">Search for a meal</label>
+				<input id="meal-search" name="meal" type="search" placeholder="Try “chicken”, “pasta”, or “curry”" autocomplete="off" required>
+				<button type="submit">SEARCH MEALS</button>
+			</form>
+		</div>
+	</header>
+
+	<main id="results" aria-live="polite">
+		<div class="results-heading">
+			<h2>Recipe results</h2>
+			<p id="result-count">Search above to get started.</p>
+		</div>
+		<div id="status" class="status">Your next favorite meal is a search away.</div>
+		<section id="meal-grid" class="meal-grid" aria-label="Meal search results"></section>
+		<div id="show-all-wrap" class="show-all-wrap hidden">
+			<button id="show-all" class="show-all" type="button">SHOW ALL</button>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="site-footer-inner">
+			<p class="footer-brand">Plate Finder</p>
+			<p>Recipe data provided by TheMealDB</p>
+			<p>&copy; 2026 Plate Finder</p>
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
