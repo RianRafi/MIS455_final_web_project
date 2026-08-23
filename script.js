@@ -25,3 +25,42 @@ function renderMeals(meals) {
 		</article>
 	`).join('');
 }
+
+function displayResults() {
+	const visibleMeals = allMeals.length > 5 ? allMeals.slice(0, 5) : allMeals;
+	renderMeals(visibleMeals);
+	status.classList.add('hidden');
+	resultCount.textContent = `${allMeals.length} meal${allMeals.length === 1 ? '' : 's'} found`;
+	showAllWrap.classList.toggle('hidden', allMeals.length <= 5);
+}
+
+searchForm.addEventListener('submit', async (event) => {
+	event.preventDefault();
+	const query = searchInput.value.trim();
+	if (!query) return;
+
+	allMeals = [];
+	mealGrid.innerHTML = '';
+	showAllWrap.classList.add('hidden');
+	status.className = 'status';
+	status.textContent = 'Searching for something delicious...';
+	resultCount.textContent = 'Loading results';
+	document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    try {
+		const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
+		if (!response.ok) throw new Error('The recipe service is unavailable.');
+		const data = await response.json();
+		allMeals = data.meals || [];
+		if (!allMeals.length) {
+			status.textContent = `No meals found for “${query}”. Try another search.`;
+			resultCount.textContent = 'No results';
+			return;
+		}
+		displayResults();
+	} catch (error) {
+		status.className = 'status error';
+		status.textContent = error.message || 'Something went wrong. Please try again.';
+		resultCount.textContent = 'Search unavailable';
+	}
+});
