@@ -64,3 +64,8 @@ searchForm.addEventListener('submit', async (event) => {
 		resultCount.textContent = 'Search unavailable';
 	}
 });
+
+showAllButton.addEventListener('click', () => {
+	renderMeals(allMeals);
+	showAllWrap.classList.add('hidden');
+});
