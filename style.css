@@ -152,3 +152,66 @@ h1 {
 	padding: 0 25px;
 	transition: background .2s ease, transform .2s ease;
 }
+
+.search-form button:hover,
+.show-all:hover { background: #d96448; transform: translateY(-2px); }
+
+main { padding: 68px 0 88px; }
+
+.results-heading {
+	align-items: end;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 27px;
+}
+
+.results-heading h2 { font-size: 2.25rem; line-height: 1.1; margin: 0; }
+.results-heading p { color: var(--muted); margin: 0; }
+
+.meal-grid {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.meal-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	box-shadow: 0 8px 22px rgba(31, 57, 38, .045);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	animation: rise .45s ease both;
+}
+
+.meal-image { aspect-ratio: 16 / 10; background: var(--sage); object-fit: cover; width: 100%; }
+
+.meal-content { display: flex; flex: 1; flex-direction: column; padding: 21px 22px 23px; }
+.meal-id { color: var(--coral); font-size: .73rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.meal-content h3 { font-size: 1.55rem; line-height: 1.15; margin: 7px 0 13px; }
+.instruction { color: var(--muted); font-size: .91rem; margin: 0; }
+.show-all-wrap { display: flex; justify-content: center; padding-top: 40px; }
+.show-all { min-height: 47px; padding: 0 28px; }
+
+.status { color: var(--muted); padding: 36px 0; text-align: center; }
+.status.error { color: #a94436; }
+.hidden { display: none; }
+
+.site-footer { background: #e8eee4; color: var(--muted); }
+.site-footer-inner { align-items: center; display: flex; justify-content: space-between; padding: 28px 0; }
+.site-footer p { font-size: .84rem; margin: 0; }
+.footer-brand { color: var(--forest); font-weight: 700; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 600px) {
+	.nav, .hero, main, .site-footer-inner { width: calc(100% - 32px); }
+	.nav-note { display: none; }
+	.hero { padding: 45px 0 72px; }
+	.search-form { flex-direction: column; gap: 5px; }
+	.search-form button { min-height: 50px; }
+	main { padding: 48px 0 64px; }
+	.results-heading { align-items: start; flex-direction: column; gap: 5px; }
+	.site-footer-inner { align-items: start; flex-direction: column; gap: 8px; }
+}
