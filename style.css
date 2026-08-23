@@ -126,3 +126,29 @@ h1 {
 	padding: 7px;
 }
 
+.search-form input {
+	background: transparent;
+	border: 0;
+	color: var(--ink);
+	flex: 1;
+	font: inherit;
+	min-width: 0;
+	outline: 0;
+	padding: 14px 17px;
+}
+
+.search-form input::placeholder { color: #8a968b; }
+
+.search-form button,
+.show-all {
+	background: var(--coral);
+	border: 0;
+	border-radius: 6px;
+	color: #fff;
+	cursor: pointer;
+	font: inherit;
+	font-weight: 700;
+	letter-spacing: .04em;
+	padding: 0 25px;
+	transition: background .2s ease, transform .2s ease;
+}
